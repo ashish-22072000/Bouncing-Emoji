@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100%;
+    width: 100%;
+    background:black;
+}
+.full{
+    height: 300px;
+    width: 100%;
+}
+
+.face{
+    height: 100px;
+    display: inline-block;
+    width: 100px;
+    background: yellow;
+    border-radius: 50%;
+}
+#face1{
+     animation: jump1 10s linear infinite;
+}
+@keyframes jump1{
+    0%{
+        transform: translateY(0px);
+    
+    }
+    50%{
+        transform: translateY(400px);
+    
+    }
+}
+#face2{
+    animation: jump2 7s linear infinite;
+   
+}
+@keyframes jump2{
+    0%{
+        transform: translateY(400px);
+       
+    }
+    50%{
+        transform: translateY(0px);
+       
+    }
+    100%{
+        transform: translateY(200px);
+       
+    }
+}
+.full:active .face{
+    animation-play-state: paused;
+}
+.face::before{
+    content: '';
+    position: absolute;
+    top:65px;
+    width: 50px;
+    height: 20px;
+    background: #b57700;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    transition: .5s;
+ margin-left: 25px;
+}
+.face:hover::before{
+    top: 70px;
+    width: 50px;
+    height: 10px;
+    background: #b57700;
+  
+}
+.eyes{
+position: relative;
+    display: flex;
+}
+.eyes .eye{
+    position: relative;
+    width: 80px;
+    height: 25px;
+    display: block;
+    background: white;
+    margin: 0 15px;
+    margin-top: 20px;
+    border-radius: 50%;
+    z-index: 500;
+}
+.eyes .eye::before{
+    content:'';
+   position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translate(-50% , -50%);
+    width: 10px;
+    height: 15px;
+    background: black;
+    border-radius: 50%;
+}
+.eyes .eye:hover::before{
+height: 5px;
+   
+}
+#face1:hover{
+      background-image: linear-gradient(to bottom , red , yellow);
+    box-shadow: 0 0 30px rgb(255,255,0), 0 0 30px rgb(255,0,0);
+}
+#face2:hover{
+      background-image: linear-gradient(to bottom, blue,yellow);
+        box-shadow: 0 0 30px rgb(255,255,0), 0 0 30px rgb(0,0,255);
+}
